@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new starforce</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer" type="module"></script> -->
+    <script src="./graph.js" type="module" defer></script>
+    <script src="./rough_sf_conversion.js" defer></script>
+    <link rel="stylesheet" href="./lightmode.css">
+</head>
+<body>
+    <div class="panel">
+        <h2>KMST Starforce</h2>
+
+        <!-- Number input fields -->
+        <label for="input1">Start</label>
+        <input type="number" id="input1" placeholder="Enter Starting ⭐" required>
+        <br>
+
+        <label for="input2">Goal</label>
+        <input type="number" id="input2" placeholder="Enter Ending ⭐" required>
+        <br>
+
+        <label for="input3">Item Level</label>
+        <input type="number" id="input3" placeholder="Enter Item Level" required>
+        <br><br>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="checkbox1">30% Off</label>
+            <label><input type="checkbox" id="checkbox2">-30% Booms ≤ 21 ⭐</label>
+            <label><input type="checkbox" id="checkbox3">Starcatching</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="submitBtn">Submit</button>
+
+        <script>
+            // Event listener for the submit button
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') { // Check if the "Enter" key is pressed
+                        document.getElementById('submitBtn').click(); // Trigger the Submit button click
+                    }
+                });
+            });
+            document.getElementById('submitBtn').addEventListener('click', function() {
+                // Get the values from the input fields
+                const value1 = parseFloat(document.getElementById('input1').value);
+                const value2 = parseFloat(document.getElementById('input2').value);
+                const value3 = parseFloat(document.getElementById('input3').value);
+
+                // Get checkbox states
+                const checkbox1 = document.getElementById('checkbox1').checked;
+                const checkbox2 = document.getElementById('checkbox2').checked;
+                const checkbox3 = document.getElementById('checkbox3').checked;
+
+                // Validate that all inputs are filled
+                if (isNaN(value1) || isNaN(value2) || isNaN(value3)) {
+                    alert("Please fill in all the fields with valid numbers.");
+                    return;
+                }
+                statistics(value1, value2, value3, checkbox1, checkbox2, checkbox3);
+            });
+        </script>
+    </div>
+    <canvas id="chart"></canvas>
+    <!-- Popup div -->
+    <div id="popup" class="popup">
+        <p>Copied to clipboard</p>
+    </div>
+
+</body>
+</html>

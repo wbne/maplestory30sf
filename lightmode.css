@@ -1,0 +1,176 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #202124;
+    line-height: 1.6;
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-start;  /* Align content to the left */
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Panel Styles */
+.panel {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 20vw;  /* Fixed width for the panel */
+    width: 100%;
+    text-align: left;
+    min-width: 20vw;
+}
+
+h2 {
+    font-size: 24px;
+    color: #202124;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Form Elements */
+label {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 8px;
+    display: inline-block;
+    width: 100%;
+}
+
+input[type="number"] {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    background-color: #f1f3f4;
+    transition: border-color 0.2s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #4285f4;
+    outline: none;
+    background-color: #fff;
+}
+
+button {
+    background-color: #4285f4;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+button:active {
+    background-color: #3367d6;
+}
+
+/* Checkbox Group Styling */
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+/* Style for individual checkboxes and their labels */
+.checkbox-group label {
+    display: block;
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection on label */
+}
+
+/* Custom checkbox style */
+.checkbox-group input[type="checkbox"] {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 4px;
+    border: 2px solid #dadce0;
+    background-color: #f1f3f4;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* When the checkbox is checked, change the background and border color */
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
+.checkbox-group input[type="checkbox"]:checked::before {
+    content: "✔";
+    color: white;
+    position: absolute;
+    left: 3px;
+    top: 0;
+    font-size: 14px;
+}
+
+/* Checkbox Focus Effect */
+.checkbox-group input[type="checkbox"]:focus {
+    outline: none;
+    border-color: #4285f4;
+    background-color: #fff;
+}
+
+#chart {
+    max-width: 77vw;
+    min-width: 77vw;
+    padding: 10px;
+
+}
+
+/* Popup Styling */
+.popup {
+    position: absolute;
+    top: 10px;
+    left: 40vw;
+
+    background-color: #43d76b; /* Green color */
+    color: white;
+    border-radius: 8px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+
+    animation: fade 3s linear;
+}
+@keyframes fade {
+    0%,100% { opacity: 0 }
+    10% { opacity: 1 }
+    90% { opacity: 1 }
+  }
+
+.popup p {
+    font-size: 16px;
+    padding: 3px;
+    text-align: center;
+}
+
+.popup:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
